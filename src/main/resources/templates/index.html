@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--/*@thymesVar id="post" type="com.ubit.hibernate.domain.Post"*/-->
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Text</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="post: ${posts}">
+            <td th:text="${post.id}"></td>
+            <td th:text="${post.description}"></td>
+            <td th:text="${post.text}"></td>
+            <td th:text="${post.date}"></td>
+            <td><a th:href="@{'/delete/'+${post.id}}">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
